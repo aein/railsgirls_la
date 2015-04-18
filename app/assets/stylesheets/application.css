@@ -24,3 +24,9 @@ h1 {
 	font-family: 'Roboto', sans-serif;
 	color:#8C1F4E;
 }
+table {
+	border-collapse: collapse;
+}
+td {
+	border: 1px solid;
+}

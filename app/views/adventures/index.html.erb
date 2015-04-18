@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Adventures List</h1>
+<h1><%= pluralize(@adventures.count, 'adventure') %></h1>
+
 
 <table>
   <thead>
@@ -10,6 +11,7 @@
       <th>Description</th>
       <th>Picture</th>
       <th>Visit</th>
+      <th>Expired</th>
       <th>Cents: <a href="/adventures?order=cents&reverse=true">H-L</a></th>
       <th>Address</th>
       <th>Website</th>
@@ -23,8 +25,12 @@
         <td><%= adventure.id %></td>
         <td><%= adventure.name %></td>
         <td><%= adventure.description %></td>
-        <td><%= adventure.picture %></td>
+        <td> <%= image_tag(adventure.picture_url, :width => 100) if adventure.picture.present? %></td>
         <td><%= adventure.visit %></td>
+        <td><% if adventure.expired? %>
+             X
+            <% end %>
+        </td>
         <td><% if adventure.cents == 0 %>
                 Free
             <% else %>
