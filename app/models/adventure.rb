@@ -3,4 +3,7 @@ class Adventure < ActiveRecord::Base
 	def expired? 
 		visit < Date.today
 	end
+
+	validates_presence_of :name
+	validates_numericality_of :cents
 end
