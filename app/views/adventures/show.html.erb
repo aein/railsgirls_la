@@ -35,5 +35,20 @@
   <%= @adventure.website %>
 </p>
 
+<h2> Comments</h2>
+
+
+ <% @comments.each do |comment| %>
+ <table width="30%"><tr><td># <%= comment.id %></td>
+   <td> Name: <%= mail_to comment.email,  comment.user_name %><br />
+    <p><%= comment.body %></p>
+  </td>
+</tr>
+</table>
+    <hr>
+  <% end %>
+
+<%= render 'comments/form' %>
+
 <%= link_to 'Edit', edit_adventure_path(@adventure) %> |
 <%= link_to 'Back', adventures_path %>

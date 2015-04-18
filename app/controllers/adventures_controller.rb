@@ -19,6 +19,8 @@ class AdventuresController < ApplicationController
   # GET /adventures/1
   # GET /adventures/1.json
   def show
+    @comments = @adventure.comments
+    @comment = @adventure.comments.build
   end
 
   # GET /adventures/new

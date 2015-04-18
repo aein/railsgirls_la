@@ -6,4 +6,5 @@ class Adventure < ActiveRecord::Base
 
 	validates_presence_of :name
 	validates_numericality_of :cents
+	has_many :comments
 end
