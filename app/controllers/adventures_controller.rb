@@ -69,6 +69,6 @@ class AdventuresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:name, :description, :picture, :visit, :cents, :address)
+      params.require(:adventure).permit(:name, :description, :picture, :visit, :cents, :address, :website)
     end
 end

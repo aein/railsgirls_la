@@ -11,6 +11,7 @@
       <th>Visit</th>
       <th>Cents</th>
       <th>Address</th>
+      <th>Website</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +19,18 @@
   <tbody>
     <% @adventures.each do |adventure| %>
       <tr>
-        <td><%= adventure.name %></td>
+        <td><%= adventure.name.upcase %></td>
         <td><%= adventure.description %></td>
         <td><%= adventure.picture %></td>
         <td><%= adventure.visit %></td>
-        <td><%= adventure.cents %></td>
+        <td><% if adventure.cents == 0 %>
+                Free
+            <% else %>
+              <%= number_to_currency(adventure.cents/100) %>
+            <% end %>
+        </td>
         <td><%= adventure.address %></td>
+        <td><%= adventure.website %></td>
         <td><%= link_to 'Show', adventure %></td>
         <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
         <td><%= link_to 'Destroy', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
