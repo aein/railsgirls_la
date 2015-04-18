@@ -6,9 +6,12 @@ class AdventuresController < ApplicationController
   def index
     if params[:order] 
         @adventures = Adventure.order(params[:order])
-
     else
         @adventures = Adventure.all
+    end
+
+    if params[:reverse] 
+        @adventures = @adventures.reverse
     end
 
   end
