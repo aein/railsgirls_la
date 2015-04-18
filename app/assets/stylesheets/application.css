@@ -17,7 +17,8 @@
 @charset "UTF-8";
 /* CSS Document */
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,500italic);
+/* @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,500italic);
+*/
 
 h1 {
 	font-family: 'Roboto', sans-serif;

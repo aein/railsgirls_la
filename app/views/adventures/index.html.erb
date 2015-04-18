@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Description</th>
       <th>Picture</th>
@@ -19,7 +20,8 @@
   <tbody>
     <% @adventures.each do |adventure| %>
       <tr>
-        <td><%= adventure.name.upcase %></td>
+        <td><%= adventure.id %></td>
+        <td><%= adventure.name %></td>
         <td><%= adventure.description %></td>
         <td><%= adventure.picture %></td>
         <td><%= adventure.visit %></td>
@@ -41,4 +43,7 @@
 
 <br>
 
-<%= link_to 'New Adventure', new_adventure_path %>
+<%= link_to 'New Adventure', new_adventure_path %><br />
+<a href="/adventures?order=cents">List by Price, Low to High</a><br />
+<a href="/adventures?order=name">List by Name</a><br />
+<a href="/adventures?order=description">List by Description</a><br />
