@@ -14,6 +14,18 @@ class AdventuresController < ApplicationController
         @adventures = @adventures.reverse
     end
 
+    if params[:free]
+      @adventures = @adventures.where(cents: 0)
+    end
+
+    if params[:name]
+      @adventures = @adventures.where name: params[:name]
+    end
+
+    if params[:filter]
+      @adventures = @adventures.where "name LIKE '%#{params[:filter]}%'"
+    end
+
   end
 
   # GET /adventures/1

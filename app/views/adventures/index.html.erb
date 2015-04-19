@@ -15,8 +15,9 @@
       <th>Cents: <a href="/adventures?order=cents&reverse=true">H-L</a></th>
       <th>Address</th>
       <th>Website</th>
+      <th>Author</th>
       <th>Comments</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -24,7 +25,7 @@
     <% @adventures.each do |adventure| %>
       <tr>
         <td><%= adventure.id %></td>
-        <td><%= adventure.name %></td>
+        <td><%= link_to adventure.name, adventures_path(name: adventure.name) %></td>
         <td><%= adventure.description %></td>
         <td> <%= image_tag(adventure.picture_url, :width => 100) if adventure.picture.present? %></td>
         <td><%= adventure.visit %></td>
@@ -40,10 +41,11 @@
         </td>
         <td><%= adventure.address %></td>
         <td><%= adventure.website %></td>
+        <td> </td>
         <td><%= adventure.comments.count %></td>
         <td><%= link_to 'Show', adventure %></td>
         <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
-        <td><%= link_to 'Destroy', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <!-- <td><%= link_to 'Destroy', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
